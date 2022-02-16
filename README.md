@@ -13,3 +13,5 @@ See `File List.pdf` and `Uses Cases and Queries.pdf`.
 
 License
 -----------------
+See LICENSE for details.
+
