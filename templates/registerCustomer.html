@@ -1,0 +1,122 @@
+<html>
+<head>
+  <title>registerCustomer</title>
+  <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+    <meta name="generator" content="Hugo 0.82.0">
+
+    <link rel="canonical" href="https://getbootstrap.com/docs/5.0/examples/sign-in/">
+
+    
+
+    <!-- Bootstrap core CSS -->
+  <link href="../static/bootstrap.min.css" rel="stylesheet">
+
+  <style>
+    .bd-placeholder-img {
+      font-size: 1.125rem;
+      text-anchor: middle;
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      user-select: none;
+    }
+
+    @media (min-width: 768px) {
+      .bd-placeholder-img-lg {
+        font-size: 3.5rem;
+      }
+    }
+      div.relative {
+          position: fixed;
+          left: 500px;
+          }
+    </style>
+    <!-- Custom styles for this template -->
+    <link href="../static/login.css" rel="stylesheet">
+</head>
+<body class="text-center">
+  <main class="form-signin">
+
+    <div class="py-5 text-center">
+      <img class="d-block mx-auto mb-4" src="../static/customer-icon.jpg" alt="" width="80" height="80">
+      <h2>Register as Customer</h2>
+    </div>
+
+    <form action="/registerAuthCustomer" method="POST">
+      <div class="form-floating">
+        <input class="form-control" id = 'email' type="text" name = "email" placeholder="email" required/>
+        <label for="email" class="form-label">Email</label><br>
+      </div>
+      
+      <div class="form-floating">
+        <input class="form-control" id = 'name' type="text" name = "name" placeholder="Name" required/>
+        <label for="name" class="form-label">Name</label><br>
+      </div>
+      
+      <div class="form-floating">
+        <input class = 'form-control' id = 'password' type="password" name = "password" placeholder="password" required/>
+        <label for="password" class="form-label">Password</label><br>
+      </div>
+
+      <div class = 'form-floating'>
+        <input class = 'form-control' id = 'building_num' type="text" name = "building_number" placeholder="building_number" required/>
+        <label for="building_num" class="form-label">Building Number</label><br>
+      </div>
+
+      <div class = 'form-floating'>
+        <input class = 'form-control' id = 'street' type="text" name = "street" placeholder="street" required/>
+        <label for="street" class="form-label">Street</label><br>
+      </div>
+
+      <div class = 'form-floating'>
+        <input class = 'form-control' id = 'city' type="text" name = "city" placeholder="City" required/>
+        <label for="city" class="form-label">City</label><br>
+      </div>
+
+      <div class = 'form-floating'>
+        <input class = 'form-control' id = 'state' type="text" name = "state" placeholder="State" required/>
+        <label for="state" class="form-label">State</label><br>
+      </div>
+    
+      <div class = 'form-floating'>
+        <input class = 'form-control' id = 'phone' type="int" name = "phone_number" placeholder="phone_number" required/>
+        <label for="phone" class="form-label">Phone Number</label><br>
+      </div>
+
+      <div class = 'form-floating'>
+        <input class = 'form-control' id = 'passport' type="text" name = "passport_number" placeholder="passport_number" required/>
+        <label for="passport" class="form-label">Passport Number</label><br>
+      </div>
+
+      <div class = 'form-floating'>
+        <input class = 'form-control' id = 'passport-expiration' type="date" name = "passport_expiration" placeholder="passport_expiration" required/>
+        <label for="passport-expiration" class="form-label">Passport Expiration</label><br>
+      </div>
+
+      <div class = 'form-floating'>
+        <input class = 'form-control' id = 'passport-country' type="text" name = "passport_country" placeholder="passport_country" required/>
+        <label for="passport-country" class="form-label">Passport Country</label><br>
+      </div>
+
+      <div class = 'form-floating'>
+        <input class = 'form-control' id = 'dob' type="date" name = "date_of_birth" placeholder="date_of_birth" required/>
+        <label for="dob" class="form-label">Date of birth</label><br>
+      </div>
+      
+      <br>
+      <button class="btn btn-success btn-lg" type="submit" value = Register>Register</button>
+      {% if error %}
+		  <p class="error"><strong>Error:</strong> {{error}}</p>
+	    {% endif %}
+
+    </form>
+
+    <a href="/" class="link-secondary" >Go back</a>
+
+  </main>
+</body>
+
+
+</html>

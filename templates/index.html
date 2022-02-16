@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+
+<head lang="en">
+  <title>index</title>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+    <meta name="generator" content="Hugo 0.82.0">
+    <title>Airline Booking System Starter</title>
+
+    <link rel="canonical" href="https://getbootstrap.com/docs/5.0/examples/starter-template/">
+
+    
+
+    <!-- Bootstrap core CSS -->
+    <link href="../static/bootstrap.min.css" rel="stylesheet">
+
+    <style>
+      .bd-placeholder-img {
+        font-size: 1.125rem;
+        text-anchor: middle;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        user-select: none;
+      }
+
+      @media (min-width: 768px) {
+        .bd-placeholder-img-lg {
+          font-size: 3.5rem;
+        }
+      }
+      div.relative {
+          position: fixed;
+          left: 500px;
+          }
+
+    </style>
+
+    
+    <!-- Custom styles for this template -->
+    <link href="../static/starter-template.css" rel="stylesheet">
+</head>
+
+<body>
+  <img src="../static/index-ariline.jpg" alt="bg" class = 'rounded mx-auto d-block'>
+  <h1 class="text-center">Airline Booking System</h1>
+<br>
+<br>
+
+<div class = 'relative'>
+<ul class="icon-list">
+  <li><a href="/login" class="list-group-item list-group-item-action list-group-item-dark">Login</a> </br></li> 
+  <li><a href="/registerCustomer" class="list-group-item list-group-item-action list-group-item-dark">New Customer</a> </br></li>
+  <li><a href="/registerAgent" class="list-group-item list-group-item-action list-group-item-dark">New Agent</a> </br></li>
+  <li><a href="/registerStaff" class="list-group-item list-group-item-action list-group-item-dark">New Staff</a></li>
+  <li><a href="/search" class="link-success">Search Upcoming Flights</span></br></li>
+</ul>
+</div>
+
+{% if error %}
+	<p class="error"><strong>Error:</strong> {{error}}</p>
+{% endif %}
+
+</body>
+
+</html>

@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="">
+  <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+  <meta name="generator" content="Hugo 0.82.0">
+  <title>Customer Home</title>
+
+  <link rel="canonical" href="https://getbootstrap.com/docs/5.0/examples/carousel/">
+
+  <!-- Bootstrap core CSS -->
+  <link href="../static/bootstrap.min.css" rel="stylesheet">
+
+  <style>
+    .bd-placeholder-img {
+      font-size: 1.125rem;
+      text-anchor: middle;
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      user-select: none;
+    }
+
+    @media (min-width: 768px) {
+      .bd-placeholder-img-lg {
+        font-size: 3.5rem;
+      }
+    }
+
+    table, th, td {
+      border: 1px solid black;
+    }
+
+  </style>
+  <script src="../static/bootstrap.bundle.min.js"></script>
+  <!-- Custom styles for this template -->
+  <link href="../static/carousel.css" rel="stylesheet">
+</head>
+
+<body>
+  <header>
+    <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+
+      <div class="container-fluid">
+        <span class="navbar-text"> Welcome {{username}} !</span> &nbsp;&nbsp;&nbsp;&nbsp;
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+          <ul class="navbar-nav me-auto mb-2 mb-md-0">
+              <a href="/logout">Logout</a>
+          </ul>
+        </div>
+
+      </div>
+    </nav>
+  </header>
+  <main>
+    <div id="carouselExampleIndicators" class="carousel carousel-dark slide" data-bs-ride="carousel">
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+          <img src="../static/destination1.PNG" class="d-block w-100">
+          <div class="carousel-caption d-none d-md-block" style=" overflow:scroll; width:1000px; height:450px;">
+            <h1 class="display-5 fw-bold">My Upcoming Flight(s)</h1>
+            <br>
+            <table class="table">
+              <thead>
+                <tr>
+                  <th scope="col">Ticket ID</th>
+                  <th scope="col">Flight</th>
+                  <th scope="col">Departure Airport</th>
+                  <th scope="col">Departure Time</th>
+                  <th scope="col">Arrival Airport</th>
+                  <th scope="col">Arrival Time</th>
+                </tr>
+              </thead>
+              {% for line in posts %}
+              <tr>
+                <td>{{line.ticket_id}}</td>
+                <td>{{line.airline_name}} {{line.flight_num}}</td>
+                <td>{{line.departure_airport}}</td>
+                <td>{{line.departure_time}}</td>
+                <td>{{line.arrival_airport}}</td>
+                <td>{{line.arrival_time}}</td>
+              </tr>
+              {% endfor %}
+            </table>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+
+          </div>
+        </div>
+        </div>
+      </div>
+    	<div class="p-5 mb-4 bg-light rounded-3">
+        <div class="row align-items-md-stretch">
+          <div class="col-md-6">
+            <form action="/viewUpcomingFlights" method="POST">
+              <div class="h-100 p-5 bg-light border text-dark bg-light rounded-3">
+                <h2>Search Flight by City</h2><br>
+                <p>(departure or arrival)</p>
+                <input type="text" class="form-control" name = "citysearchbox" placeholder="City Name" required/> <br>
+                <input type="submit" value = Search  class="btn btn-success btn-lg"/>
+              </div>
+            </form>
+          </div>
+    
+          <div class="col-md-6">
+            <form action="/viewUpcomingFlights" method="POST">
+              <div class="h-100 p-5 bg-light border text-white bg-dark rounded-3">
+              <h2>Search Flight by Airports</h2><br>
+              <p>(departure or arrival)</p>
+              <input type="text" class="form-control" name = "airportsearchbox" placeholder="Airport Formal Abbreviation" required/> <br>
+              <input type="submit" value = Search  class="btn btn-success btn-lg"/>
+              </div>
+            </form>
+          </div>
+    
+          <div class="col-md-6">
+            <form action="/viewUpcomingFlights" method="POST">
+              <div class="h-100 p-5 bg-light border text-white bg-dark rounded-3">
+              <h2>Search Flight by Date</h2><br>
+              <p>(departure or arrival)</p>
+              <input type="date" class="form-control" name="begintime"  placeholder="Start Time" required/><br>
+              <input type="date" class="form-control" name="endtime"  placeholder="End Time" required/><br>
+              <input type="submit" value = Search  class="btn btn-success btn-lg"/>
+              </div>
+            </form>
+          </div>
+    
+        </div>
+      </div>
+    <div class="p-5 mb-4 bg-light rounded-3">
+      <div class="container-fluid py-5">
+
+        <div class="row align-items-md-stretch">
+          <div class="col-md-6">
+              <div class="h-100 p-5 bg-light border text-dark rounded-3">
+                <h2 class="display-6 fw-bold">View Operation:</h2><br>
+                  <a href="/trackMySpending" class="list-group-item list-group-item-success">Track my spending</a> <br>
+              </div>
+            </div>
+        
+
+        
+          <div class="col-md-6">
+              <div class="h-100 p-5 bg-light border text-dark rounded-3">
+                <h2 class="display-6 fw-bold" >Purchase Operation:</h2><br>
+                <a href="/purchasePageCustomer" class="list-group-item list-group-item-success">Purchase Flights</a> <br>
+              </div>   
+            </div>
+
+        </div>
+  </main>
+{% if error %}
+  <p class="error"><strong>Error:</strong> {{error}}</p>
+{% endif %}
+<a href="/customerHome">Go back to home page</a>
+</body>
+
+</html>

@@ -1,0 +1,62 @@
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="">
+  <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+  <meta name="generator" content="Hugo 0.82.0">
+  <title>Login Page</title>
+
+  <link rel="canonical" href="https://getbootstrap.com/docs/5.0/examples/sign-in/">
+   <!-- Bootstrap core CSS -->
+  <link href="../static/bootstrap.min.css" rel="stylesheet">
+
+  <style>
+    .bd-placeholder-img {
+      font-size: 1.125rem;
+      text-anchor: middle;
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      user-select: none;
+    }
+
+    @media (min-width: 768px) {
+      .bd-placeholder-img-lg {
+        font-size: 3.5rem;
+      }
+    }
+    div.relative {
+        position: fixed;
+        left: 500px;
+        }
+  </style>
+</head>
+<link href="../static/login.css" rel="stylesheet">
+<body class="text-center">
+  <main class="form-signin">
+    <h2 class="h2 mb-4 fw-normal">Change Flight Status</h2>
+    <form action="/staffHome/changeFlight/Auth" method="POST">
+    <input type="text"  class="form-control" name = "flightnum" placeholder="Flight Number" required/> </br>
+    <input type="radio" name="status" value="Upcoming"> Upcoming
+    <input type="radio" name="status" value="Delayed"> Delayed<br>
+    <input type="radio" name="status" value="On-time"> On-time
+    <input type="radio" name="status" value="Past"> Past <br><br>
+    <input type="submit" value = Update class="btn btn-success btn-lg"/>
+    </form>
+    {% if error %}
+		<p class="error"><strong>Error:</strong> {{error}}</p>
+	  {% endif %}
+    <a href="/staffHome">Go back</a>
+  </main>
+
+
+
+	
+
+
+
+
+</body>
+
+
+</html>

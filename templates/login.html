@@ -1,0 +1,92 @@
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+    <meta name="generator" content="Hugo 0.82.0">
+    <title>Login Page</title>
+
+    <link rel="canonical" href="https://getbootstrap.com/docs/5.0/examples/sign-in/">
+     <!-- Bootstrap core CSS -->
+    <link href="../static/bootstrap.min.css" rel="stylesheet">
+
+    <style>
+      .bd-placeholder-img {
+        font-size: 1.125rem;
+        text-anchor: middle;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        user-select: none;
+      }
+
+      @media (min-width: 768px) {
+        .bd-placeholder-img-lg {
+          font-size: 3.5rem;
+        }
+      }
+      div.relative {
+          position: fixed;
+          left: 500px;
+          }
+    </style>
+
+</head>
+
+<!-- Custom styles for this template -->
+<link href="../static/login.css" rel="stylesheet">
+<body class="text-center">
+
+<main class="form-signin">
+<form action="/loginAuth" method="POST">
+  <img class="mb-4" src="../static/login-flight.png" alt="" width="200" height="150">
+  <h1 class="h3 mb-3 fw-normal">Please Sign in</h1>
+
+  <div class="form-floating">
+    <input type="text" class="form-control" id = 'identifier' name = "username" placeholder="username or email" required/>
+    <label for='identifier'>Email address or Username</label><br>
+  </div>
+
+  <div class="form-floating">
+    <input type="password" class="form-control" id = 'password' name = "password" placeholder="password" required/>
+    <label for='password'>Password</label><br>
+  </div>
+
+  <!-- <input type="password" name = "password" placeholder="password" required/></br><br> -->
+  <br>
+  <div class="badge rounded-pill bg-dark" style="width: 10rem;">
+    Select your login mode
+  </div>
+  <!-- Select your login mode <br> -->
+  <div class="form-check">
+    <input class="form-check-input" type="radio" id = 'customer' name="usrtype" value="customer" required>
+    <label class="form-check-label" for='customer'>
+      Customer
+    </label>
+  </div>
+  <div class="form-check">
+    <input class="form-check-input" type="radio" id = 'bookingAgent' name="usrtype" value="agent" required >
+    <label class="form-check-label" for='bookingAgent'>
+      Booking Agent
+    </label>
+  </div>
+  <div class="form-check">
+    <input class="form-check-input" type="radio" id = 'airlineStaff' name="usrtype" value="staff" required>
+    <label class="form-check-label" for='airlineStaff'>
+      Airline Staff 
+    </label>
+  </div>
+  <br>
+  <button class="btn btn-success btn-lg" type="submit">Sign in</button>
+  <!-- <input type="submit" value = Login /> -->
+  {% if error %}
+    <p class="error"><strong>Error:</strong> {{error}}</p>
+  {% endif %}
+</form>
+<a href = '/' class="link-secondary">Go Back</a>
+</main>
+
+</body>
+
+
+</html>

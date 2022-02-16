@@ -1,0 +1,231 @@
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="">
+	<meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+	<meta name="generator" content="Hugo 0.82.0">
+	<title>Staff Home</title>
+  
+	<link rel="canonical" href="https://getbootstrap.com/docs/5.0/examples/carousel/">
+  
+	
+  
+	<!-- Bootstrap core CSS -->
+  <link href="../static/bootstrap.min.css" rel="stylesheet">
+  
+	<style>
+	  .bd-placeholder-img {
+		font-size: 1.125rem;
+		text-anchor: middle;
+		-webkit-user-select: none;
+		-moz-user-select: none;
+		user-select: none;
+	  }
+  
+	  @media (min-width: 768px) {
+		.bd-placeholder-img-lg {
+		  font-size: 3.5rem;
+		}
+	  }
+  
+	</style>
+	<script src="../static/bootstrap.bundle.min.js"></script>
+	
+	<!-- Custom styles for this template -->
+	<link href="../static/carousel.css" rel="stylesheet">
+</head>
+<body>
+	<h2 class="display-7 text-dark fw-bold" >Create New Flight</h2>
+	<br>
+	<h3>Upcoming Flights for the Next 30 Days:</h3>
+	<br>
+<!-- <style type="text/css">
+	table, th, td{
+		border: 1px solid black;
+	}
+</style> -->
+	<div class="container-fluid py-5 bg-light border text-dark bg-light rounded-3">
+		<table class="table table-striped table-hover">
+			<th>airline_name</th>
+			<th>flight_num</th>
+			<th>departure_airport</th>
+			<th>departure_time</th>
+			<th>arrival_airport</th>
+			<th>arrival_time</th>
+			<th>price</th>
+			<th>status</th>
+			<th>airplane_id</th>
+			
+		{% for line in results %}
+			<tr>
+				<td>{{line.airline_name}}</td>
+				<td>{{line.flight_num}}</td>
+				<td>{{line.departure_airport}}</td>
+				<td>{{line.departure_time}}</td>
+				<td>{{line.arrival_airport}}</td>
+				<td>{{line.arrival_time}}</td>
+				<td>{{line.price}}</td>
+				<td>{{line.status}}</td>
+				<td>{{line.airplane_id}}</td>
+			</tr>
+		{% endfor %}
+		</table></br>
+
+	</div>
+	<br>
+	<h3> Infromation Needed to Create New Flight:</h3>
+	<br>
+	<div class="container-fluid py-5 bg-light border text-dark bg-light rounded-3">
+		<table style="float: left;">
+			<th>Airports</th>
+			
+		{% for line in airportdata %}
+			<tr>
+				<td>{{line.airport_name}}</td>
+			</tr>
+		{% endfor %}
+		</table>
+		<table>
+			<th>Airplanes</th>
+			
+		{% for line in airplanedata %}
+			<tr>
+				<td>{{line.airplane_id}}</td>
+			</tr>
+		{% endfor %}
+		</table>
+		<br></br>
+		<br></br>
+		<br></br>
+		<br></br>
+
+	</div>
+	<br>
+	<div class="container-fluid py-5 bg-light border text-dark bg-light rounded-3">
+		<h2 class="display-6 fw-bold">Create a New Flight </h2><br>
+		<form action="/staffHome/createFlight/Auth" method="POST">
+			<div class="row">
+				<div class="col">
+					<input type="number" class="form-control" name = "flightnum" placeholder="Flight Number" required/> </br>
+				</div>
+				<div class="col">
+					<input type="text" class="form-control" name = "airplanenum" placeholder="Airplane ID" required/> </br>
+				</div>
+				<div class="col">
+					<input type="number" class="form-control" name = "price" placeholder="Ticket Price" required/> </br>
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="col">
+					<input type="text" class="form-control" name = "departport" placeholder="Departure Airport" required/> </br>
+				</div>
+				<div class="col">
+					<input type="text" class="form-control"  name = "arriveport" placeholder="Arrival Airport" required/> </br>
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="col">
+					<input type=datetime-local class="form-control"  name = "departtime" step="1" required> </br>
+				</div>
+				<div class="col">
+					<input type=datetime-local class="form-control"  name = "arrivetime" step="1" required> </br>
+				</div>
+			</div>
+
+			<br>
+			<button type="submit" class="btn btn-success">Submit</button>
+
+			{% if error %}
+				<p class="error"><strong>Error:</strong> {{error}}</p>
+			{% endif %}
+		
+		
+		</form>
+		<br>
+		<a href="/staffHome">Go back</a>
+
+	</div>
+
+</body>
+
+
+
+
+
+<!-- <h3>Upcoming Flights for the Next 30 Days:</h3> -->
+<!-- <table>
+	<th>airline_name</th>
+	<th>flight_num</th>
+	<th>departure_airport</th>
+	<th>departure_time</th>
+	<th>arrival_airport</th>
+	<th>arrival_time</th>
+	<th>price</th>
+	<th>status</th>
+	<th>airplane_id</th>
+	
+{% for line in results %}
+	<tr>
+		<td>{{line.airline_name}}</td>
+		<td>{{line.flight_num}}</td>
+		<td>{{line.departure_airport}}</td>
+		<td>{{line.departure_time}}</td>
+		<td>{{line.arrival_airport}}</td>
+		<td>{{line.arrival_time}}</td>
+		<td>{{line.price}}</td>
+		<td>{{line.status}}</td>
+		<td>{{line.airplane_id}}</td>
+	</tr>
+{% endfor %}
+</table></br> -->
+
+<!-- <form action="/staffHome/createFlight/Auth" method="POST"> -->
+  <!-- <input type="number" name = "flightnum" placeholder="Flight Number" required/> </br> -->
+  <!-- <input type="text" name = "departport" placeholder="Departure Airport" required/> </br> -->
+  <!-- Departure Time </br> -->
+  <!-- <input type=datetime-local name = "departtime" step="1" required> </br> -->
+  <!-- <input type="text" name = "arriveport" placeholder="Arrival Airport" required/> </br> -->
+  <!-- Arrival Time </br> -->
+  <!-- <input type=datetime-local name = "arrivetime" step="1" required> </br> -->
+  <!-- <input type="number" name = "price" placeholder="Ticket Price" required/> </br> -->
+  <!-- <input type="text" name = "airplanenum" placeholder="Airplane ID" required/> </br> -->
+  
+  <!-- <input type="submit" value = Submit /> -->
+	<!-- {% if error %}
+		<p class="error"><strong>Error:</strong> {{error}}</p>
+	{% endif %} -->
+<!-- </form> -->
+<!-- <h3> Infromation Needed to Create New Flight:</h3> -->
+<!-- <table style="float: left;">
+	<th>Airports</th>
+	
+{% for line in airportdata %}
+	<tr>
+		<td>{{line.airport_name}}</td>
+	</tr>
+{% endfor %}
+</table> -->
+<!-- <table>
+	<th>Airplanes</th>
+	
+{% for line in airplanedata %}
+	<tr>
+		<td>{{line.airplane_id}}</td>
+	</tr>
+{% endfor %}
+</table> -->
+
+<!-- <br></br>
+<br></br>
+<br></br>
+<br></br> -->
+<!-- 
+<a href="/staffHome">Go back</a> -->
+
+
+
+
+</html>

@@ -1,0 +1,93 @@
+<html>
+<head>
+  <title>registerAgent</title>
+  <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+    <meta name="generator" content="Hugo 0.82.0">
+
+    <link rel="canonical" href="https://getbootstrap.com/docs/5.0/examples/sign-in/">
+
+    
+
+    <!-- Bootstrap core CSS -->
+  <link href="../static/bootstrap.min.css" rel="stylesheet">
+
+  <style>
+    .bd-placeholder-img {
+      font-size: 1.125rem;
+      text-anchor: middle;
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      user-select: none;
+    }
+
+    @media (min-width: 768px) {
+      .bd-placeholder-img-lg {
+        font-size: 3.5rem;
+      }
+    }
+      div.relative {
+          position: fixed;
+          left: 500px;
+          }
+    </style>
+    <!-- Custom styles for this template -->
+    <link href="../static/login.css" rel="stylesheet">
+<body class="text-center">
+  <main class="form-signin">
+
+    <div class="py-5 text-center">
+      <img class="d-block mx-auto mb-4" src="../static/agent-icon.jpg" alt="" width="120" height="105">
+      <h2>Register as Booking Agent</h2>
+    </div>
+
+    <form action="/registerAuthAgent" method="POST" novalidate>
+
+      <div class="form-floating">
+        <input class="form-control" id = 'email' type="text" name = "email" placeholder="email" required/>
+        <label for="email" class="form-label">Email</label><br>
+      </div>
+
+      <div class="form-floating">
+        <input class = 'form-control' id = 'password' type="password" name = "password" placeholder="password" required/>
+        <label for="password" class="form-label">Password</label><br>
+      </div>
+
+      <div class="form-floating">
+        <input class = 'form-control' id = 'agent-id' type="number" name = "booking_agent_id" placeholder="booking_agent_id" required/>
+        <label for="agent-id" class="form-label">Booking Agent ID</label><br>
+      </div>
+
+      <br>
+      <button class="btn btn-success btn-lg" type="submit" value = Register>Register</button>
+
+      {% if error %}
+      <p class="error"><strong>Error:</strong> {{error}}</p>
+      {% endif %}
+      
+    </form >
+    <a href="/" class="link-secondary">Go back</a>
+    </main>
+
+<!-- <form action="/registerAuthAgent" method="POST">
+
+  Email <br><input type="text" name = "email" placeholder="email" required/> </br><br>
+  Password <br><input type="password" name = "password" placeholder="password" required/></br><br>
+  Booking Agent ID <br><input type="number" name = "booking_agent_id" placeholder="booking_agent_id" required/></br><br>
+  <input type="submit" value = Register />
+
+
+  {% if error %}
+    <p class="error"><strong>Error:</strong> {{error}}</p>
+  {% endif %}
+</form> -->
+
+<br><br>
+<!-- <a href="/" class="link-secondary">Go back</a> -->
+
+</body>
+
+
+</html>

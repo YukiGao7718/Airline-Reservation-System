@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="">
+  <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+  <meta name="generator" content="Hugo 0.82.0">
+  <title>view top customers</title>
+
+  <link rel="canonical" href="https://getbootstrap.com/docs/5.0/examples/carousel/">
+
+  <!-- Bootstrap core CSS -->
+  <link href="../static/bootstrap.min.css" rel="stylesheet">
+
+  <style>
+    .bd-placeholder-img {
+      font-size: 1.125rem;
+      text-anchor: middle;
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      user-select: none;
+    }
+
+    @media (min-width: 768px) {
+      .bd-placeholder-img-lg {
+        font-size: 3.5rem;
+      }
+    }
+
+    table, th, td {
+      border: 1px solid black;
+    }
+
+  </style>
+  <script src="../static/bootstrap.bundle.min.js"></script>
+  <!-- Custom styles for this template -->
+  <link href="../static/carousel.css" rel="stylesheet">
+    <!-- 引入 echarts.js -->
+    
+    <!-- <script src="echarts.min.js"></script> -->
+  <script src = 'https://cdnjs.cloudflare.com/ajax/libs/echarts/4.8.0/echarts.min.js'></script>
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+    
+          <div class="container-fluid">
+            <span class="navbar-text"> Welcome {{username}} !</span> &nbsp;&nbsp;&nbsp;&nbsp;
+            <div class="collapse navbar-collapse" id="navbarCollapse">
+              <ul class="navbar-nav me-auto mb-2 mb-md-0">
+                  <a href="/logout">Logout</a>
+              </ul>
+            </div>
+    
+          </div>
+        </nav>
+      </header> 
+    <main>
+        <div id="carouselExampleIndicators" class="carousel carousel-dark slide" data-bs-ride="carousel">
+            <div class="carousel-inner">
+              <div class="carousel-item active">
+                <img src="../static/destination1.PNG" class="d-block w-100">
+                
+
+            <div class="carousel-caption d-none d-md-block" style=" overflow:scroll; width:1100px; height:450px;">
+                <h3 class="display-7 fw-bold">View top customers: </h3><br>
+                <div class="row align-items-md-stretch">
+                    <div class="col-md-6">
+                        <div id="bar1" style="width: 600px;height:400px;"></div>
+                        <script type="text/javascript">
+                            // 基于准备好的dom，初始化echarts实例
+                            var barChart1 = echarts.init(document.getElementById("bar1"));
+                            // 使用刚指定的配置项和数据显示图表。
+                            var option1 = {{bar_options1 | safe}};
+                            barChart1.setOption(option1);
+                        </script>
+                    </div>
+                  
+          
+                  
+                    <div class="col-md-6">
+                        <div id="bar2" style="width: 600px;height:400px;"></div>
+                        <script type="text/javascript">
+                            // 基于准备好的dom，初始化echarts实例
+                            var barChart2 = echarts.init(document.getElementById("bar2"));
+                            // 使用刚指定的配置项和数据显示图表。
+                            var option2 = {{bar_options2 | safe}};
+                            barChart2.setOption(option2);
+                        </script>
+                    </div>
+                </div>
+                
+            </div>
+
+          </div>
+        </div>
+        </div>
+        <div class="p-5 mb-4 bg-light rounded-3">
+            <div class="container-fluid py-5">
+      
+              <div class="row align-items-md-stretch">
+                <div class="col-md-6">
+                    <div class="h-100 p-5 bg-light border text-dark rounded-3">
+                      <h2 class="display-6 fw-bold">View Operation:</h2><br>
+                        <a href="/agentUpcomingFlights" class="list-group-item list-group-item-success">View Upcoming Flights</a> <br>
+                        
+                    </div>
+                  </div>
+              
+      
+              
+                <div class="col-md-6">
+                    <div class="h-100 p-5 bg-light border text-dark rounded-3">
+                      <h2 class="display-6 fw-bold" >Purchase Operation:</h2><br>
+                      <a href="/purchasePageAgent" class="list-group-item list-group-item-success">Purchase Flights</a> <br>
+                    </div>   
+                  </div>
+                </div>
+              </div>
+            </div>
+
+    </main>
+
+    {% if error %}
+    <p class="error"><strong>Error:</strong> {{error}}</p>
+    {% endif %}
+    <!-- ######################################################### -->
+    <a href = '/agentHome'> Go back</a>
+    <!-- ######################################################## -->
+  
+</body>
+</html>

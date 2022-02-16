@@ -1,0 +1,161 @@
+<html>
+<head lang = 'en'>
+    <meta charset="utf-8">
+    <title>TopCustomerBarCharts</title>
+    
+    <!-- <script src="echarts.min.js"></script> -->
+    <script src = 'https://cdnjs.cloudflare.com/ajax/libs/echarts/4.8.0/echarts.min.js'></script>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+    <meta name="generator" content="Hugo 0.82.0">
+    <title>Jumbotron example · Bootstrap v5.0</title>
+
+    <link rel="canonical" href="https://getbootstrap.com/docs/5.0/examples/jumbotron/">
+
+    
+
+    <!-- Bootstrap core CSS -->
+    <link href="../static/bootstrap.min.css" rel="stylesheet">
+
+    <style>
+      .bd-placeholder-img {
+        font-size: 1.125rem;
+        text-anchor: middle;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        user-select: none;
+      }
+
+      @media (min-width: 768px) {
+        .bd-placeholder-img-lg {
+          font-size: 3.5rem;
+        }
+      }
+    </style>
+
+</head>
+
+
+<body>
+  <main>
+    <div class="container-fluid py-5 bg-light border bg-white text-dark rounded-3">
+      <h2>View Reports</h2>
+      <div class="row">
+        <div class="col">
+          <div id="bar1" style="width: 600px;height:400px;"></div>
+          <script type="text/javascript">
+
+            var barChart1 = echarts.init(document.getElementById("bar1"));
+            var option1 = {{bar_options1 | safe}};
+            barChart1.setOption(option1);
+          </script>
+          {% if error %}
+           <p class="error"><strong>Error:</strong> {{error}}</p>
+          {% endif %}
+        </div>
+
+        <div class="col">
+          <form action="/staffHome/viewReports/past" method="POST">
+           <b>Search stats in the past...</b><br>
+           <br>
+            <input type="radio" name="range" value="month" required> Month 
+            <input type="radio" name="range" value="year" required> Year 
+            <br>
+            <br>
+            <button type="submit" class="btn btn-success">Search</button>
+            <br>
+            <!-- <input type="submit" value = Search /> -->
+          </form>
+          <br>
+          <br>
+          <form action="/staffHome/viewReports/dates" method="POST">
+              <b>Search stats between dates</b><br>
+              <br>
+              Starting Time:
+              <div class = 'form-floating'>
+                <input type="datetime-local" class = 'form-control' name="begintime" step=1 required/> 
+              </div>
+            
+              <br>
+              Ending Time:
+              <div class = 'form-floating'>
+                <input type="datetime-local" class = 'form-control' name="endtime" step=1 required/> 
+              </div>
+              <br>
+              <button type="submit" class="btn btn-success">Search</button>
+              <!-- <input type="submit" value = Search /> -->
+          </form>
+          {% if error %}
+              <p class="error"><strong>Error:</strong> {{error}}</p>
+          {% endif %}
+        </div>  
+      </div>
+    </div>
+
+    <a href="/staffHome">Go back</a> 
+
+  </main>
+</body>
+
+
+
+
+
+<!-- <h2>View Reports</h2> -->
+
+<!-- <div id="bar1" style="width: 600px;height:400px;"></div>
+<script type="text/javascript">
+
+  var barChart1 = echarts.init(document.getElementById("bar1"));
+  var option1 = {{bar_options1 | safe}};
+  barChart1.setOption(option1);
+</script> -->
+<!-- {% if error %}
+    <p class="error"><strong>Error:</strong> {{error}}</p>
+{% endif %} -->
+
+<!-- <style>
+.chart div {
+  font: 10px sans-serif;
+  background-color: steelblue;
+  text-align: right;
+  padding: 3px;
+  margin: 1px;
+  color: white;
+}
+</style>
+
+<div class="chart">
+    {% for line in results %}
+  <div style="width: {{line[0] * 10}}px;">{{line[1]}}</div>
+    {% endfor %}
+  
+</div> -->
+
+<!-- <form action="/staffHome/viewReports/past" method="POST">
+    Search stats in the past...
+    <input type="radio" name="range" value="month" required> Month
+    <input type="radio" name="range" value="year" required> Year</br>
+    <input type="submit" value = Search />
+</form>
+
+<form action="/staffHome/viewReports/dates" method="POST">
+    Search stats between dates</br>
+    Starting Time:
+    <input type="datetime-local" name="begintime" step=1 required/> </br>
+    Ending Time:
+    <input type="datetime-local" name="endtime" step=1 required/> </br>
+    <input type="submit" value = Search />
+</form> -->
+<!-- 
+{% if error %}
+    <p class="error"><strong>Error:</strong> {{error}}</p>
+{% endif %} -->
+
+<!-- <a href="/staffHome">Go back</a> -->
+
+
+
+</html>

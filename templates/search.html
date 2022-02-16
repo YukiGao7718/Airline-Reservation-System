@@ -1,0 +1,200 @@
+<html>
+<head lang="en">
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="">
+        <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+        <meta name="generator" content="Hugo 0.82.0">
+        <title>Jumbotron example · Bootstrap v5.0</title>
+    
+        <link rel="canonical" href="https://getbootstrap.com/docs/5.0/examples/jumbotron/">
+    
+        
+    
+        <!-- Bootstrap core CSS -->
+    <link href="../static/bootstrap.min.css" rel="stylesheet">
+    
+        <style>
+          .bd-placeholder-img {
+            font-size: 1.125rem;
+            text-anchor: middle;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            user-select: none;
+          }
+    
+          @media (min-width: 768px) {
+            .bd-placeholder-img-lg {
+              font-size: 3.5rem;
+            }
+          }
+        </style>
+</head>
+<body>
+    <main>
+        <div class="container py-4">
+            <header class="pb-3 mb-4 border-bottom">
+              <a href="/" class="d-flex align-items-center text-dark text-decoration-none">
+                <img src="../static/flight-search-icon.jpg" alt="" width="80" height="80">
+                <span class="fs-4">Multiple Searching Methods for Flights</span>
+              </a>
+            </header>
+
+            <div class="p-5 mb-4 bg-light rounded-3">
+                <div class="container-fluid py-5">
+                    <h2 class="display-5 fw-bold">Search Flight Status </h2><br>
+
+                    <form action="/searchstatus/status" method="POST">
+                    <div class="row">
+                        <div class="col">
+                          Flight number</br>
+                          <input type="number" class="form-control" placeholder="Flight Number" aria-label="Flight Number"name="flight number" step=1 required/>
+                        </div>
+                        <div class="col">
+                          Departure Time</br>
+                          <input type="date" class="form-control" placeholder="Departure Time" aria-label="Departure Time" name="departure_time" step=1 required/>
+                        </div>
+                        <div class="col">
+                          Arrival Time</br>
+                          <input type="date" class="form-control" placeholder="Arrival Time" aria-label="Arrival Time" name="arrival_time" step=1 required/>
+                        </div>
+                    </div>
+                    <br>
+                    <input type="submit" value = Search  class="btn btn-success btn-lg"/>
+                    </form>
+                </div><br>
+                <!-- ########################################################################### -->
+                <div class="container-fluid py-5 bg-light border text-white bg-dark rounded-3">
+                  <h2 class="display-6 fw-bold">Search Flight by All </h2><br>
+
+                  <form action="/searchFlights/all" method="POST">
+                  <div class="row">
+                      <div class="col">
+                        Departure Time</br>
+                        <input type="datetime-local" class="form-control" placeholder="Departure Time" aria-label="Departure Time" name="departure_time" step=1 required/>
+                      </div>
+                      <div class="col">
+                        Arrival Time</br>
+                        <input type="datetime-local" class="form-control" placeholder="Arrival Time" aria-label="Arrival Time" name="arrival_time" step=1 required/>
+                      </div>   
+                  </div>
+                  <br><br>
+
+                  <div class = 'row'>
+                    <div class = 'col'>
+                      <input type="text" class="form-control" name = "dep_city" placeholder="Departure City Name" required/> <br>
+                    </div>
+                    <div class = 'col'>
+                      <input type="text" class="form-control" name = "arr_city" placeholder="Arrival City Name" required/> <br>
+                    </div>
+                    <div class = 'col'>
+                      <input type="text" class="form-control" name = "Departure" placeholder="Departure Airport Formal Abbreviation" required/> <br>
+                    </div>
+                    <div class = 'col'>
+                      <input type="text" class="form-control" name = "Arrival" placeholder="Arrival Airport Formal Abbreviation" required/> <br>
+                    </div>
+
+                  </div>
+                  <br>
+                  <input type="submit" value = Search  class="btn btn-success btn-lg"/>
+                  </form>
+                  </div><br>
+                  <!-- ########################################################################### -->
+
+                <div class="container-fluid py-5">
+                    <h2 class="display-5 fw-bold">Search Flight by Dates </h2><br>
+
+                <form action="/searchFlights/date" method="POST">
+                    <div class="row">
+                        <div class="col">
+                          Departure Time</br>
+                          <input type="datetime-local" class="form-control" placeholder="Departure Time" aria-label="Departure Time" name="begintime" step=1 required/>
+                        </div>
+                        <div class="col">
+                          Arrival Time</br>
+                          <input type="datetime-local" class="form-control" placeholder="Arrival Time" aria-label="Arrival Time" name="endtime" step=1 required/>
+                        </div>
+                    </div>
+                    <br>
+                    <input type="submit" value = Search  class="btn btn-success btn-lg"/>
+                </form>
+                </div>
+
+                <div class="row align-items-md-stretch">
+                    <div class="col-md-6">
+                    <form action="/searchFlights/city" method="POST">
+                        <div class="h-100 p-5 bg-light border text-white bg-dark rounded-3">
+                          <h2>Search Flight by City</h2>
+                          <input type="text" class="form-control" name = "citysearchbox" placeholder="City Name" required/> <br>
+                          <input type="submit" value = Search  class="btn btn-success btn-lg"/>
+                        </div>
+                    </form>
+                </div>
+
+                  <div class="col-md-6">
+                    <form action="/searchFlights/airport" method="POST">
+                      <div class="h-100 p-5 bg-light border text-white bg-dark rounded-3">
+                        <h2>Search Flight by Airports</h2>
+                        <input type="text" class="form-control" name = "airportsearchbox" placeholder="Airport Formal Abbreviation" required/> <br>
+                        <input type="submit" value = Search  class="btn btn-success btn-lg"/>
+                      </div>
+                    </form>
+                    </div>
+                </div>
+
+              </div>
+        
+
+        </div>
+        {% if error %}
+	    <p class="error"><strong>Error:</strong> {{error}}</p>
+        {% endif %}
+        <br>
+        <div class="fixed-bottom">
+            <a href="/" class="link-secondary" >Go back</a>
+        </div>
+        <!-- <a href="/" class="link-secondary" >Go back</a> -->
+    </main>
+
+<!-- <form action="/searchFlights/city" method="POST">
+	
+	Search by city (arrival or departure)</br>
+	<input type="text" name = "citysearchbox" placeholder="search by city" required/> </br>
+	<input type="submit" value = Search />
+
+</form>
+
+<form action="/searchFlights/airport" method="POST">
+
+        Search by airport (arrival or departure)</br>
+	<input type="text" name = "airportsearchbox" placeholder="search by airport" required/> </br>
+	<input type="submit" value = Search />
+
+</form> -->
+
+<!-- <form action="/searchFlights/date" method="POST">
+
+    Search by date (arrival or departure)</br>
+    Starting Time: 
+    <input type="datetime-local" name="begintime" step=1 required/> </br>
+    Ending Time:
+    <input type="datetime-local" name="endtime" step=1 required/> </br>
+    <input type="submit" value = Search />
+
+</form> -->
+
+<!-- <form action="/searchstatus/status" method="POST">
+
+    Search by flight number and dates</br>
+    Flight number:
+    <input type='number' name="flight number" step=1 required/> </br>
+    Departure time:
+    <input type="date" name="departure_time" step=1 required/> </br>
+    Arrival time:
+    <input type="date" name="arrival_time" step=1 required/> </br>
+    <input type="submit" value = Search />
+
+</form> -->
+
+</body>
+</html>

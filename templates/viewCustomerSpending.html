@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="">
+  <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+  <meta name="generator" content="Hugo 0.82.0">
+  <title>Track Spending</title>
+
+  <link rel="canonical" href="https://getbootstrap.com/docs/5.0/examples/carousel/">
+
+  <!-- Bootstrap core CSS -->
+  <link href="../static/bootstrap.min.css" rel="stylesheet">
+
+  <style>
+    .bd-placeholder-img {
+      font-size: 1.125rem;
+      text-anchor: middle;
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      user-select: none;
+    }
+
+    @media (min-width: 768px) {
+      .bd-placeholder-img-lg {
+        font-size: 3.5rem;
+      }
+    }
+
+    table, th, td {
+      border: 1px solid black;
+    }
+
+  </style>
+  <script src="../static/bootstrap.bundle.min.js"></script>
+  <!-- Custom styles for this template -->
+  <link href="../static/carousel.css" rel="stylesheet">
+</head>
+<body>
+  <header>
+    <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+
+      <div class="container-fluid">
+        <span class="navbar-text"> Welcome {{username}} !</span> &nbsp;&nbsp;&nbsp;&nbsp;
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+          <ul class="navbar-nav me-auto mb-2 mb-md-0">
+              <a href="/logout">Logout</a>
+          </ul>
+        </div>
+
+      </div>
+    </nav>
+  </header> 
+  <main>
+    <div id="carouselExampleIndicators" class="carousel carousel-dark slide" data-bs-ride="carousel">
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+          <img src="../static/destination1.PNG" class="d-block w-100">
+          <div class="carousel-caption d-none d-md-block" style=" overflow:scroll; width:1000px; height:450px;">
+            <h1 class="display-6 fw-bold">Your total spending is: {{sumSpending}}</h1>
+            <br>
+      
+      {% if error %}
+      <div class="spending totalSpending">{{error}}</div>
+      {% else %}
+      <div class="display-7 fw-bold">The total spending from {{from_date}} to {{to_date}} is {{total_spending}}.</div>
+      <div class="spending canvas">
+        <canvas id="chart" width="600" height="400"></canvas>
+        <script src='https://cdnjs.cloudflare.com/ajax/libs/Chart.js/1.0.2/Chart.min.js'></script>
+        <script>
+            // bar chart data
+            var barData = {
+            labels : [{% for item in labels %}
+                        "{{ item }}",
+                        {% endfor %}],
+            datasets:[
+                  {fillColor: "rgba(167,106,227,0.6)",
+                  strokeColor: "rgba(151,187,205,1)",
+                  pointColor: "rgba(151,187,205,1)",
+                  data : [{% for item in values %}
+                            "{{ item }}",
+                            {% endfor %}]
+                  }]}
+            // get bar chart canvas
+            var mychart = document.getElementById("chart").getContext("2d");
+            max = {{max}};
+            steps = 10;
+            // draw bar chart
+            new Chart(mychart).Bar(barData, {
+            scaleOverride: true,
+            scaleSteps: steps,
+            scaleStepWidth: Math.ceil(max / steps),
+            scaleStartValue: 0,
+            scaleShowVerticalLines: true,
+            scaleShowGridLines : true,
+            barShowStroke : true,
+            scaleShowLabels: true
+            }
+            ); 
+        </script>
+        
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+      
+<div class="p-5 mb-4 bg-light rounded-3">
+  
+  <div class="row align-items-md-stretch">
+    <div class="col-md-6">
+      <form action="/trackMySpending" method="POST">
+        <div class="h-100 p-5 bg-light border text-dark bg-light rounded-3">
+          <h2>Track My Spending</h2><br>
+          <input type="date" class="form-control" name="from_date"  placeholder="Start Time" required/><br>
+          <input type="date" class="form-control" name="to_date"  placeholder="End Time" required/><br>
+          <input type="submit" value = Search  class="btn btn-success btn-lg"/>
+        </div>
+      </form>
+    </div>
+    </div>
+
+  </div>
+      
+{% endif %}
+
+</div>
+</div>
+</main>
+</br>
+<a href="/customerHome">Go back</a>
+
+</body>
+
+
+</html>

@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="">
+  <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+  <meta name="generator" content="Hugo 0.82.0">
+  <title>Staff Home</title>
+
+  <link rel="canonical" href="https://getbootstrap.com/docs/5.0/examples/carousel/">
+
+  
+
+  <!-- Bootstrap core CSS -->
+<link href="../static/bootstrap.min.css" rel="stylesheet">
+
+  <style>
+    .bd-placeholder-img {
+      font-size: 1.125rem;
+      text-anchor: middle;
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      user-select: none;
+    }
+
+    @media (min-width: 768px) {
+      .bd-placeholder-img-lg {
+        font-size: 3.5rem;
+      }
+    }
+
+    table, th, td {
+      border: 1px solid black;
+    }
+
+  </style>
+  <script src="../static/bootstrap.bundle.min.js"></script>
+  
+  <!-- Custom styles for this template -->
+  <link href="../static/carousel.css" rel="stylesheet">
+</head>
+
+<body>
+  <header>
+    <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+
+      <div class="container-fluid">
+        <span class="navbar-text"> Welcome {{username}} !</span> &nbsp;&nbsp;&nbsp;&nbsp;
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+          <ul class="navbar-nav me-auto mb-2 mb-md-0">
+              <a href="/logout"> Logout</a>
+          </ul>
+        </div>
+
+      </div>
+    </nav>
+  </header>
+  <main>
+    <div id="carouselExampleIndicators" class="carousel carousel-dark slide" data-bs-ride="carousel">
+      <div class="carousel-indicators">
+        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+      </div>
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+          <img src="../static/destination1.PNG" class="d-block w-100">
+          <div class="carousel-caption d-none d-md-block">
+            <h1 class="display-5 fw-bold">Top 3 Destinations</h1>
+            <h4>(in the past 3 months)</h4>
+            <br>
+            {% for i1 in destination1 %}
+            <p>{{i1}}&nbsp;&nbsp;</p>
+            {% endfor %}
+            <br>
+            <br>
+            <br>
+            <br>
+          </div>
+        </div>
+        <div class="carousel-item">
+          <img src="../static/destination2.PNG" class="d-block w-100">
+          <div class="carousel-caption d-none d-md-block">
+            <h1 class="display-5 fw-bold">Top 3 Destinations</h1>
+            <h4>(in the past 3 months)</h4>
+            <br>
+            {% for i2 in destination2 %}
+            <p>{{i2}}&nbsp;&nbsp;</p>
+            {% endfor %}
+            <br>
+            <br>
+            <br>
+            <br>
+          </div>
+        </div>
+      </div>
+      <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+      </button>
+    </div>
+
+    <div class="p-5 mb-4 bg-light rounded-3">
+      <div class="container-fluid py-5">
+
+        <div class="row align-items-md-stretch">
+          <div class="col-md-6">
+              <div class="h-100 p-5 bg-light border text-dark rounded-3">
+                <h2 class="display-6 fw-bold">View Operation:</h2><br>
+                  <a href="/staffHome/searchFlights" class="list-group-item list-group-item-success">View Flights</a> <br>
+                  <a href="/staffHome/viewAgents" class="list-group-item list-group-item-success">View Booking Agents</a> <br>
+                  <a href="/staffHome/viewCustomers" class="list-group-item list-group-item-success">View Customers</a> <br>
+                  <a href="/staffHome/viewReports" class="list-group-item list-group-item-success">View Reports</a> <br>
+                  <a href="staffHome/ComparisonRevenue"class="list-group-item list-group-item-success">Comparison of Revenue Earned</a>
+              </div>
+            </div>
+        
+
+        
+          <div class="col-md-6">
+              <div class="h-100 p-5 bg-light border text-dark rounded-3">
+                <h2 class="display-6 fw-bold" >Modification Operation:</h2><br>
+                <a href="/staffHome/createFlight" class="list-group-item list-group-item-success">Create New Flight</a> <br>
+                <a href="/staffHome/changeFlight" class="list-group-item list-group-item-success">Change Flight Status</a> <br>
+                <a href="/staffHome/addAirplane" class="list-group-item list-group-item-success">Add Airplane</a> <br>
+                <a href="/staffHome/addAirport" class="list-group-item list-group-item-success">Add Airport</a> <br>
+              </div>   
+            </div>
+
+        </div>
+
+      </div>
+      
+
+
+    </div>
+
+  </main>
+
+{% if message %}
+    <h2>{{message}}</h2>
+{% endif %}
+
+<!-- <a href="/staffHome/searchFlights">View Flights</a> <br/> -->
+<!-- <a href="/staffHome/createFlight">Create New Flight</a> <br/>
+<a href="/staffHome/changeFlight">Change Flight Status</a> <br/>
+<a href="/staffHome/addAirplane">Add Airplane</a> <br/>
+<a href="/staffHome/addAirport">Add Airport</a> <br/> -->
+<!-- <a href="/staffHome/viewAgents">View Booking Agents</a> <br/>
+<a href="/staffHome/viewCustomers">View Customers</a> <br/>
+<a href="/staffHome/viewReports">View Reports</a> <br/> -->
+<!-- <a href="staffHome/ComparisonRevenue">Comparison of Revenue Earned</a> <br/> -->
+
+<!-- <table style="float: left;">
+  <tr>
+    <th>Top 3 Destinations <br> (in the past 3 months)</th> 
+  </tr>
+  {% for i1 in destination1 %}
+  <tr>
+    <th>{{i1}}</th>
+  </tr>
+  {% endfor %}
+</table>
+
+<table>
+  <tr>
+    <th>Top 3 Destinations <br> (in the past 1 year)</th> 
+  </tr>
+  {% for i2 in destination2 %}
+  <tr>
+    <th>{{i2}}</th>
+  </tr>
+  {% endfor %}
+</table> -->
+
+<!-- <h2>Top 3 Destinations for the past 3 months</h2>
+
+<p>From the Top to the Bottom: {{destination1}} </p>
+<h2>Top 3 Destinations for the past 1 year</h2>
+<p>From the Top to the Bottom: {{destination2}}</p> -->
+{% if error %}
+  <p class="error"><strong>Error:</strong> {{error}}</p>
+{% endif %}
+</body>
+
+</html>

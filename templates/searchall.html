@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>searchall</title>
+</head>
+
+<style type="text/css" media="screen">
+  table, th, td{
+    border: 1px solid black;
+  }
+</style>
+
+<body>
+<h1>Search from All Flights</h1>
+
+<br><br>
+<table>
+  <th>Airline Name</th>
+  <th>Flight Number</th>
+  <th>Departure Airport</th>
+  <th>Departure Time</th>
+  <th>Arrival Airport</th>
+  <th>Arrival Time</th>
+  <th>Price</th>
+  <th>Status</th>
+  <th>Airplane ID</th>
+  
+{% for line in results %}
+  <tr>
+    <td>{{line.airline_name}}</td>
+    <td>{{line.flight_num}}</td>
+    <td>{{line.departure_airport}}</td>
+    <td>{{line.departure_time}}</td>
+    <td>{{line.arrival_airport}}</td>
+    <td>{{line.arrival_time}}</td>
+    <td>{{line.price}}</td>
+    <td>{{line.status}}</td>
+    <td>{{line.airplane_id}}</td>
+  </tr>
+{% endfor %}
+</table> 
+
+{% if error %}
+  <p class="error"><strong>Error:</strong> {{error}}</p>
+{% endif %}
+<br><br>
+
+<a href="/search">Search again</a>
+
+</body>
+
+</html>

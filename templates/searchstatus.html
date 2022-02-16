@@ -1,0 +1,26 @@
+<html>
+<head>
+</head>
+<body>
+<style type="text/css">
+	table, th, td{
+		border: 1px solid black;
+	}
+</style>
+
+<table>
+	<th>status</th>
+	
+{% for line in results %}
+	<tr>
+		<td>{{line.status}}</td>
+	</tr>
+{% endfor %}
+</table>
+
+<a href="/search">Search again</a>
+
+</body>
+
+
+</html>
