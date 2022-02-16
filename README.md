@@ -5,7 +5,7 @@ This repo contains all the codes used to build up an airline tickets reservation
 
 Installation
 ---------------
-Download [MySQL](https://www.mysql.com/cn/downloads/) and [Python](https://www.python.org/downloads/). Run the 'init.py' which can be found in folder 'main'.
+Download [MySQL](https://www.mysql.com/cn/downloads/) and [Python](https://www.python.org/downloads/). Run the `init.py` which can be found in folder `main`.
 
 Description of Files
 ------------------------
