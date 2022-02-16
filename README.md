@@ -11,5 +11,5 @@ Description of Files and User Cases
 ------------------------
 See `File List.pdf` and `Uses Cases and Queries.pdf`.
 
-Licenses
-------
+License
+-----------------
