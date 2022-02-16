@@ -7,31 +7,31 @@ Description of Files
 ------------------------
 
 ### Static: web page style design
-*airplane_bg.jpg 
-*Agent-icon.jpg
-*Agent-icon.svg
-*Airplane_bg2.jpg
-*Bootstrap.bundle.min.js
-*Bootstrap.bundle.min.js.map
-*Bootstrap.min.css
-*Bootstrap.min.map
-*Bootstrap.rtl.min.css
-*Bootstrap.rtl.min.css.map
-*Carousel.css
-*Carousel.rtl.css
-*Customer-icon.jpg
-*Destination1.jpg
-*Destination1.png
-*Destination2.jpg
-*Destination2.png
-*Echarts.min.js
-*Flight-search-icon.jpg
-*Form-validation.css
-*Form-validation.js
-*Index-airline.jpg
-*Login-flight.jpg
-*Login.css
-*Sea-bg.jpg
-*Staff-icon.jpg
-*Starter-template.css 
+* airplane_bg.jpg 
+* Agent-icon.jpg
+* Agent-icon.svg
+* Airplane_bg2.jpg
+* Bootstrap.bundle.min.js
+* Bootstrap.bundle.min.js.map
+* Bootstrap.min.css
+* Bootstrap.min.map
+* Bootstrap.rtl.min.css
+* Bootstrap.rtl.min.css.map
+* Carousel.css
+* Carousel.rtl.css
+* Customer-icon.jpg
+* Destination1.jpg
+* Destination1.png
+* Destination2.jpg
+* Destination2.png
+* Echarts.min.js
+* Flight-search-icon.jpg
+* Form-validation.css
+* Form-validation.js
+* Index-airline.jpg
+* Login-flight.jpg
+* Login.css
+* Sea-bg.jpg
+* Staff-icon.jpg
+* Starter-template.css 
 
